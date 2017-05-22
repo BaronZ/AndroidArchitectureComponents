@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.zzb.androidarchitecturecomponents.approach1.FirstViewModel;
 import com.zzb.androidarchitecturecomponents.approach1.Score;
+import com.zzb.androidarchitecturecomponents.sharebetweenfragments.ShareViewModelActivity;
 
 public class MainActivity extends LifecycleActivity {
     private TextView mTvScore;
@@ -43,5 +44,9 @@ public class MainActivity extends LifecycleActivity {
 
     private void displayScore(Score score) {
         mTvScore.setText(String.valueOf(score.data));
+    }
+
+    public void onClick(View view) {
+        ShareViewModelActivity.launch(this);
     }
 }

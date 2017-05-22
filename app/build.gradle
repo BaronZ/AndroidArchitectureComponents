@@ -33,4 +33,5 @@ dependencies {
 
     annotationProcessor "android.arch.lifecycle:compiler:$arch_lifecycle_version"
     compile "android.arch.lifecycle:extensions:$arch_lifecycle_version"
+    compile 'com.android.support:support-v4:25.3.1'
 }
