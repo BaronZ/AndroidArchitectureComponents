@@ -16,4 +16,10 @@ public class FirstViewModel extends ViewModel {
     public MutableLiveData<Score> getScoreLiveData() {
         return mScoreLiveData;
     }
+
+    public void updateScore() {
+        Score score = mScoreLiveData.getValue();
+        ++score.data;
+        mScoreLiveData.setValue(score);
+    }
 }

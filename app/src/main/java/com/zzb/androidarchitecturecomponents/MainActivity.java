@@ -4,7 +4,6 @@ import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -23,26 +22,26 @@ public class MainActivity extends LifecycleActivity {
 
         final FirstViewModel viewModel = ViewModelProviders.of(this).get(FirstViewModel.class);
         final Score score = new Score();
-        updateScore(score);
+        displayScore(score);
 
         View btnAddScore = findViewById(R.id.btn_add_score);
         btnAddScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ++score.data;
-                viewModel.getScoreLiveData().setValue(score);
+                viewModel.updateScore();
             }
         });
 
         viewModel.getScoreLiveData().observe(this, new Observer<Score>() {
             @Override
             public void onChanged(@Nullable Score score) {
-                updateScore(score);
+                displayScore(score);
             }
         });
     }
 
-    private void updateScore(Score score) {
+
+    private void displayScore(Score score) {
         mTvScore.setText(String.valueOf(score.data));
     }
 }
