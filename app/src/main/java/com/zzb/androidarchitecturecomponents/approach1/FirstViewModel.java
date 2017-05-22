@@ -23,6 +23,11 @@ import android.util.Log;
  * Lifecycles provides a new class called ViewModel, which is a helper class for the UI Controller that is responsible to prepare the data for the UI.
  * The ViewModel is automatically retained during configuration changes so the data it holds is immediately available to the next activity or fragment instance.
  * For the example we’ve mentioned above, it would be the ViewModel’s responsibility to acquire and keep the list of users, not the activity or the fragment.
+ * <p>
+ * ViewModel的生命周期：与其绑定的LifeCycle一致（Activity finish 或者Fragment detached）
+ * The lifecycle of a ViewModel
+ * ViewModel objects are scoped to the Lifecycle passed to the ViewModelProvider when getting the ViewModel.
+ * The ViewModel stays in memory until the Lifecycle it’s scoped to goes away permanently—in the case of an activity, once it finishes; in the case of a fragment, once it’s detached.
  * Created by ZZB on 2017/5/22.
  */
 
